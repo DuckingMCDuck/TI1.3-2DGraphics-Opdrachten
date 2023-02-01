@@ -1,7 +1,5 @@
 import java.awt.*;
 import java.awt.geom.*;
-import java.rmi.MarshalException;
-
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.scene.Group;
@@ -25,7 +23,7 @@ public class Graph extends Application {
     public void draw(FXGraphics2D graphics) {
 
         graphics.translate(canvas.getWidth()/2, canvas.getHeight()/2);
-        graphics.scale( 0.5, -0.5);
+        graphics.scale( 1, -1);
 
         graphics.setColor(Color.red);
         graphics.drawLine(-1000,0,1000,0);
@@ -35,11 +33,11 @@ public class Graph extends Application {
 
         double resolution = 0.1;
         double scale = 50.0;
-        double lastY = -1000;
+        double lastY = Math.sin(-10);
 
         for(double x = -10; x < 10; x += resolution)
         {
-            float y = (float)Math.pow(x, 3);
+            float y = (float)Math.sin(x);
             graphics.draw(new Line2D.Double(x*scale, y*scale, (x-resolution)*scale, lastY*scale));
             lastY = y;
         }
