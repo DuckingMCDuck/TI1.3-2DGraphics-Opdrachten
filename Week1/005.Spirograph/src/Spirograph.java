@@ -58,7 +58,7 @@ public class Spirograph extends Application {
             int x2 = (int) (a * Math.cos(b * i-increment) + c * Math.cos(d * i-increment));
             int y2 = (int) (a * Math.sin(b * i-increment) + c * Math.sin(d * i-increment));
 
-            graphics.drawLine(x2, y2, x, y);
+            graphics.drawLine(x, y, x2, y2);
         }
     }
     
