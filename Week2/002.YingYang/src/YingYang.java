@@ -33,6 +33,26 @@ public class YingYang extends Application {
         graphics.setTransform(new AffineTransform());
         graphics.setBackground(Color.white);
         graphics.clearRect(0, 0, (int) canvas.getWidth(), (int) canvas.getHeight());
+
+        Area mainCircle = new Area(new Ellipse2D.Double(-25, 0, 100, 100));
+        Area bottomCircle = new Area(new Ellipse2D.Double(0, 50, 50, 50));
+        Area topCircle = new Area(new Ellipse2D.Double(0, 0, 50, 50));
+        Area smallBottomCircle = new Area(new Ellipse2D.Double(15, 65, 20, 20));
+        Area smallTopCircle = new Area(new Ellipse2D.Double(15, 15, 20, 20));
+        Area square = new Area(new Rectangle2D.Double(25, 0, 100, 100));
+
+        Area area = new Area(mainCircle);
+        area.subtract(square);
+        area.subtract(topCircle);
+        area.add(bottomCircle);
+        area.add(smallTopCircle);
+        area.subtract(smallBottomCircle);
+
+        graphics.translate(200, 200);
+        graphics.draw(mainCircle);
+        graphics.setColor(Color.black);
+        graphics.draw(area);
+        graphics.fill(area);
     }
 
 
