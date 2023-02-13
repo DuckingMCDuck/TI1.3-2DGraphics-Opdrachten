@@ -33,6 +33,57 @@ public class Colors extends Application {
         graphics.setTransform(new AffineTransform());
         graphics.setBackground(Color.white);
         graphics.clearRect(0, 0, (int) canvas.getWidth(), (int) canvas.getHeight());
+
+        Area rectangle = new Area(new Rectangle2D.Double(0, 0, 25, 25));
+        graphics.translate(50, 200);
+        Color color;
+
+        for (int i = 0; i < 13; i++) {
+            switch (i){
+                case 0:
+                    graphics.setColor(Color.black);
+                    break;
+                case 1:
+                    graphics.setColor(Color.blue);
+                    break;
+                case 2:
+                    graphics.setColor(Color.cyan);
+                    break;
+                case 3:
+                    graphics.setColor(Color.darkGray);
+                    break;
+                case 4:
+                    graphics.setColor(Color.gray);
+                    break;
+                case 5:
+                    graphics.setColor(Color.green);
+                    break;
+                case 6:
+                    graphics.setColor(Color.lightGray);
+                    break;
+                case 7:
+                    graphics.setColor(Color.magenta);
+                    break;
+                case 8:
+                    graphics.setColor(Color.orange);
+                    break;
+                case 9:
+                    graphics.setColor(Color.pink);
+                    break;
+                case 10:
+                    graphics.setColor(Color.red);
+                    break;
+                case 11:
+                    graphics.setColor(Color.white);
+                    break;
+                case 12:
+                    graphics.setColor(Color.yellow);
+                    break;
+            }
+            graphics.translate(30, 0);
+            graphics.draw(rectangle);
+            graphics.fill(rectangle);
+        }
     }
 
 
