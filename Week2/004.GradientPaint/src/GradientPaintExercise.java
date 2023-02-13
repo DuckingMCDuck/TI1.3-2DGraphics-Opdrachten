@@ -31,7 +31,6 @@ public class GradientPaintExercise extends Application {
         draw(new FXGraphics2D(canvas.getGraphicsContext2D()));
         canvas.setOnMouseDragged(e -> {
             focus.setLocation(e.getX(), e.getY());
-//            center = new Point2D.Double(e.getX(), e.getY());
             draw(new FXGraphics2D(canvas.getGraphicsContext2D()));
         });
     }
@@ -42,7 +41,7 @@ public class GradientPaintExercise extends Application {
         graphics.setBackground(Color.white);
         graphics.clearRect(0, 0, (int) canvas.getWidth(), (int) canvas.getHeight());
 
-        float radius = 50;
+        float radius = 400;
 
         Color[] colors = new Color[]{Color.red, Color.green, Color.blue, Color.magenta, Color.CYAN};
 
