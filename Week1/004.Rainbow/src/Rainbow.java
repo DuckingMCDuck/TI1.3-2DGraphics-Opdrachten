@@ -26,15 +26,11 @@ public class Rainbow extends Application {
         int positieX = 250;
         int positieY = 250;
         int hoek = 180;
-        int x1;
-        int y1;
-        int x2;
-        int y2;
         for(double i = -(Math.PI/180)*hoek; i < 0; i+= 0.001) {
-            x1 = (int)Math.round(radiusBinnen * Math.cos(i)) + positieX;
-            y1 = (int)Math.round(radiusBinnen * Math.sin(i)) + positieY;
-            x2 = (int)Math.round(radiusBuiten * Math.cos(i)) + positieX;
-            y2 = (int)Math.round(radiusBuiten * Math.sin(i)) + positieY;
+            int x1 = (int)Math.round(radiusBinnen * Math.cos(i)) + positieX;
+            int y1 = (int)Math.round(radiusBinnen * Math.sin(i)) + positieY;
+            int x2 = (int)Math.round(radiusBuiten * Math.cos(i)) + positieX;
+            int y2 = (int)Math.round(radiusBuiten * Math.sin(i)) + positieY;
             g.setColor(Color.getHSBColor((float)-i/3, 1, 1));
             g.drawLine(x1, y1, x2, y2);
         }
