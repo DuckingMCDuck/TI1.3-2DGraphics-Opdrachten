@@ -42,7 +42,7 @@ public class MovingCharacter extends Application {
         tx.translate(100, 100);
 
         try {
-            image = ImageIO.read(getClass().getResource("sprite.png"));
+            image = ImageIO.read(getClass().getResource("/images/sprite.png"));
             tiles = new BufferedImage[65];
             for(int i = 0; i < 65; i++)
                 tiles[i] = image.getSubimage(64 * (i%8), 64 * (i/8), 64, 64);
