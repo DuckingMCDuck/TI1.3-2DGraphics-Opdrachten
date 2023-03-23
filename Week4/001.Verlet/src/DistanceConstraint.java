@@ -7,6 +7,7 @@ public class DistanceConstraint implements Constraint {
     private double distance;
     private Particle a;
     private Particle b;
+    private double stress;
 
     public DistanceConstraint(Particle a, Particle b) {
         this(a, b, a.getPosition().distance(b.getPosition()));
@@ -23,6 +24,7 @@ public class DistanceConstraint implements Constraint {
 
         double currentDistance = a.getPosition().distance(b.getPosition());
         double adjustmentDistance = (currentDistance - distance) / 2;
+        stress = adjustmentDistance;
 
         Point2D BA = new Point2D.Double(b.getPosition().getX() - a.getPosition().getX(), b.getPosition().getY() - a.getPosition().getY());
         double length = BA.distance(0, 0);
@@ -42,5 +44,9 @@ public class DistanceConstraint implements Constraint {
     @Override
     public void draw(FXGraphics2D g2d) {
         g2d.draw(new Line2D.Double(a.getPosition(), b.getPosition()));
+    }
+
+    public double getStress() {
+        return stress;
     }
 }
