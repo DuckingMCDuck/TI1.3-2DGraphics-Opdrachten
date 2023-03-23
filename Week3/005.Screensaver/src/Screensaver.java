@@ -17,6 +17,10 @@ public class Screensaver extends Application {
     private Point point2;
     private Point point3;
     private Point point4;
+    private Point point5;
+    private Point point6;
+    private Point point7;
+    private Point point8;
     private ArrayList<Point> points = new ArrayList<>();
     private Point lastPoint;
     private Stage stage;
@@ -33,14 +37,22 @@ public class Screensaver extends Application {
         canvas = new ResizableCanvas(g -> draw(g), mainPane);
         mainPane.setCenter(canvas);
         FXGraphics2D g2d = new FXGraphics2D(canvas.getGraphicsContext2D());
-        point1 = new Point(new Point2D.Double(50, 50), -0.32045, -0.76528);
+        point1 = new Point(new Point2D.Double(345, 435), -0.32045, -0.76528);
         points.add(point1);
-        point2 = new Point(new Point2D.Double(100, 50), 0.65128, -0.7234);
+        point2 = new Point(new Point2D.Double(300, 300), 0.65128, -0.7234);
         points.add(point2);
-        point3 = new Point(new Point2D.Double(50, 100), -0.827364, 0.23475);
+        point3 = new Point(new Point2D.Double(253, 85), -0.827364, 0.23475);
         points.add(point3);
-        point4 = new Point(new Point2D.Double(100, 100), 0.872361, 0.8243);
+        point4 = new Point(new Point2D.Double(33, 167), 0.872361, 0.8243);
         points.add(point4);
+        point5 = new Point(new Point2D.Double(480, 123), -0.9183765, -0.123876);
+        points.add(point5);
+        point6 = new Point(new Point2D.Double(124, 32), 0.1238756, -0.9834756);
+        points.add(point6);
+        point7 = new Point(new Point2D.Double(12, 5), -0.38275, 0.238596);
+        points.add(point7);
+        point8 = new Point(new Point2D.Double(245, 123), 0.3258, 0.3487569);
+        points.add(point8);
         lastPoint = point1;
 
         new AnimationTimer() {
@@ -81,7 +93,7 @@ public class Screensaver extends Application {
                     point.setDirectionY(point.getDirectionY()*-1);
                 }
 
-                graphics.setPaint(Color.white);
+                graphics.setPaint(new Color(152, 20, 204));
                 point.setPoint2D(new Point2D.Double(point.getDirectionX() + point.getPoint2D().getX(), point.getDirectionY() + point.getPoint2D().getY()));
                 Line2D line = new Line2D.Double((int) point.getPoint2D().getX(), (int) point.getPoint2D().getY(), (int) lastPoint.getPoint2D().getX(), (int) lastPoint.getPoint2D().getY());
                 graphics.drawLine((int)line.getX1(), (int)line.getY1(), (int)line.getX2(), (int)line.getY2());
@@ -94,10 +106,10 @@ public class Screensaver extends Application {
                 }
             }
             frame++;
-            if (frame > 20) {
+            if (frame > 4) {
                 allLines.add(new LineSet(currentLines));
                 try {
-                    if (allLines.size() > 7){
+                    if (allLines.size() > 40){
                         allLines.remove(0);
                     }
                     System.out.println(allLines.size());
