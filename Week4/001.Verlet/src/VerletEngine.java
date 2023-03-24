@@ -96,14 +96,19 @@ public class VerletEngine extends Application {
         graphics.clearRect(0, 0, (int) canvas.getWidth(), (int) canvas.getHeight());
 
         for (DistanceConstraint distanceConstraint : distanceConstraints) {
-            int stress = (int)(10 * distanceConstraint.getStress());
-            if (stress < 0){
-                stress = -stress;
-            } else if (stress > 255){
-                stress = 255;
+            try {
+                int stress = (int)(10 * distanceConstraint.getStress());
+                if (stress < 0){
+                    stress = -stress;
+                } else if (stress > 255){
+                    stress = 255;
+                }
+                graphics.setColor(new Color(stress, stress, stress));
+                distanceConstraint.draw(graphics);
+            } catch (Exception e){
+
             }
-            graphics.setColor(new Color(stress, stress, stress));
-            distanceConstraint.draw(graphics);
+
         }
         for (Particle p : particles) {
             p.draw(graphics);
